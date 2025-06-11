@@ -1,0 +1,67 @@
+/* signin.css for Bootstrap 5.3 */
+html,
+body {
+    height: 100%;
+    background: linear-gradient(135deg, #ece9e6, #ffffff);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.form-signin {
+    max-width: 400px;
+    width: 100%;
+    background-color: white;
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-signin h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #333;
+    text-align: center;
+}
+
+.form-floating label {
+    font-size: 14px;
+    color: #666;
+}
+
+.form-control {
+    border-radius: 10px !important;
+    border: 1px solid #ced4da;
+    transition: box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.25);
+}
+
+.btn-primary {
+    border-radius: 10px;
+    padding: 12px;
+    font-weight: bold;
+    background-color: #4a90e2;
+    border-color: #4a90e2;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #357abd;
+    border-color: #357abd;
+}
+
+.alert {
+    font-size: 14px;
+    padding: 12px;
+    border-radius: 10px;
+}

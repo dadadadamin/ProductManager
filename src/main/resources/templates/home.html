@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>SpringBoot Security</title>
+    <link th:href="@{/css/main.css}" rel="stylesheet">
+
+</head>
+
+<body>
+<h2>안녕하세요. Product Manager 사이트에 오신 것을 환영합니다</h2>
+
+<!-- 로그인 된 사용자 -->
+<div sec:authorize="isAuthenticated()">
+    <p>Welcome <span sec:authentication="principal.username">User</span></p>
+
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="로그아웃"/>
+    </form>
+
+    <!-- 관리자 전용 -->
+    <div sec:authorize="hasRole('ADMIN')">
+        <h3>[ADMIN 전용 메뉴]</h3>
+        <p><a th:href="@{/admin/home}">관리자 홈</a></p>
+    </div>
+
+    <hr/>
+    <p>현재 권한 목록:</p>
+    <ul>
+        <li th:each="auth : ${#authentication.authorities}" th:text="${auth.authority}">ROLE</li>
+    </ul>
+
+    <p><a th:href="@{/products}">상품 목록으로 이동</a></p>
+</div>
+
+<!-- 비로그인 사용자 -->
+<div sec:authorize="isAnonymous()">
+    <p><a th:href="@{/login}">로그인</a></p>
+    <p><a th:href="@{/signup}">회원가입</a></p>
+</div>
+
+</body>
+</html>
